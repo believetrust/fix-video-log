@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>测试H5事件</title>
+	<style>
+		.inlineblock {
+			display: inline-block;
+			*display: inline;
+			*zoom: 1;
+		}
+	</style>
+</head>
+
+<body>
+	
+	<div id="myflashBox0" class="inlineblock"></div>
+
+	<button id="btn1">play</button>
+
+	<script>
+		var playerConfig = {
+			url: "",	// flash播放器地址,
+			container: "myflashBox0",
+			id: "myMovie0",
+			width: 640,
+			height: 360,
+			params: {
+				allowNetworking: "all",
+				allowScriptAccess: "always",
+				wmode: "opaque",
+				allowFullScreen: "true",
+				quality: "high"
+			},
+			attributes: {},
+			flashvars: {
+				autoPlay: 1,  //是否自动播放
+				loop: 0,
+				autoLoad: 1,
+				thumbUrl: 'http://p1.v.iask.com/0/267/137089255_2.jpg',
+				tj: 1,
+				as: 1,
+				asUrl: 'http://www.sina.com.cn'
+			},
+			h5attr: {
+				autoPlay: false,  //是否自动播放
+				controls: true, //是否显示控制条
+				loop: false,
+				poster: 'http://img.mp.sohu.com/upload/20170606/17c9e7452e03435197a08a0a38e5863d_th.png', //视频加载前欲加载的图片地址，即播放器一开始显示的截图
+				preload: 'auto'
+			},
+		};
+		var videoConfig = {
+			video_id: '202603208',
+			pid: '1',
+			url: window.location.href,
+			title: 'sinaplayerH5日志测试',
+			swfOutsideUrl: ''
+		};
+
+		var videos = [
+			{
+				video_id: 203503650,
+				pid: '1',
+				url: window.location.href,
+				title: '日志测试',
+				as: 1,
+				poster: 'http://p1.v.iask.com/0/267/137089255_2.jpg'
+			},
+			{
+				video_id: 202603208,
+				pid: '1',
+				url: window.location.href,
+				title: 'yyy',
+				as: 1,
+				poster: 'http://p.v.iask.com/video/249/336/839/249336839.jpg'
+			},
+			{
+				video_id: 203503650,
+				pid: '1',
+				as: 1,
+				url: window.location.href,
+				title: 'zzz',
+				poster: 'http://p.v.iask.com/video/249/176/613/249176613.jpg'
+			}
+		]
+
+	</script>
+	<!-- <script src="http://sjs2.sinajs.cn/video/sinaplayer/js/page/player_v1.js"></script> -->
+	<script src="http://shuqing.sina.com.cn/www/h5log/sinaPlayerH5_test.js"></script>
+	<script>
+		var player = playVideo(playerConfig, videoConfig);
+
+		player.on("h5RecordeValue", function(data, playerId){
+			// console.log(data, playerId);
+		});
+
+
+		// var num = 0;
+		// player.on("playComplete", function () {
+		// 	// player.playVideo(videos[num++]);
+		// 	// console.log('-shuqing-test-playComplete');
+		// });
+		
+		// player.on("volumeOn", function() {
+		// 	console.log("volumeOn");
+		// });
+
+		// player.on("volumeOff", function() {
+		// 	console.log("volumeOff");
+		// });
+
+		// player.on("toFullScreen", function() {
+		// 	console.log("toFullScreen");
+		// });
+
+		// player.on("toNomalScreen", function() {
+		// 	console.log("toNomalScreen");
+		// });
+
+		// player.on("playStart", function() {
+		// 	// console.log("playStart");
+		// });
+
+		// player.on("pauseNotify", function() {
+		// 	console.log("pauseNotify");
+		// });
+
+		// player.on("unpauseNotify", function() {
+		// 	console.log("unpauseNotify");
+		// });
+
+		// player.on("toUrl", function(url) {
+		// 	console.log(url);
+		// });
+
+		// player.on("onFirstframe",function(){
+		// 	console.log('首帧回调');
+		// });
+
+		// var btn1 = document.getElementById("btn1");
+		
+		// var boo = false;
+		// btn1.onclick = function() {
+		// 	if(!boo) {
+		// 		player.pause();//暂停
+		// 		boo = true;	
+		// 	} else {
+		// 		player.play();//播放
+		// 		boo = false;
+		// 	}
+		// };
+
+
+	</script>
+</body>
+
+</html>
